@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141201045308) do
   create_table "questions", force: true do |t|
     t.string   "title"
     t.text     "body"
-    t.string   "status"
+    t.string   "status",     default: "draft"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
