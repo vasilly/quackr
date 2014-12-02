@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     
     if @question.save
-      redirect_to questions_path, :notice => 'Question is successfully saved'
+      redirect_to edit_question_path(@question), :notice => 'Question is successfully saved'
     else
       render :new
     end 
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title)
+    params.require(:question).permit(:title, :body)
   end
 
 end
