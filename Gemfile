@@ -27,5 +27,7 @@ gem 'redcarpet'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'simplecov', :require => false # for code coverage
 end
 

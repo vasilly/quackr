@@ -6,4 +6,5 @@ class Question < ActiveRecord::Base
 
     markdown.render(self.body)# ;
   end
+
 end
