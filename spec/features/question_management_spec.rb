@@ -4,6 +4,14 @@ RSpec.feature 'question management', focus: true do
 
   context 'when logged in' do
 
+    scenario 'view question list' do
+      q1 = Question.create title: 'first question', body: 'win'
+      q2 = Question.create title: 'second question', body: 'double win'
+
+      visit questions_path
+      expect(page).to have_text('first question').and have_text 'second question'
+    end
+
     scenario 'create new question' do
       visit new_question_path
       fill_in "Title", :with => 'my first question'
