@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'question management', focus: true do
+RSpec.feature 'question management', focus: true do
 
   context 'when logged in' do
 
@@ -11,6 +11,11 @@ feature 'question management', focus: true do
       click_button "Save"
 
       expect(page).to have_text("Question is successfully saved")
+
+      within 'form.edit_question' do
+        expect(find_field('Title').value).to have_text "my first question"
+        expect(find_field('Body')).to have_text "hello **big** world"
+      end
     end
 
     scenario 'edit draft question' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Question, :type => :model do
+RSpec.describe Question, :focus => true, :type => :model do
   
   it "new question defaults to draft" do
     question = Question.new
@@ -14,13 +14,26 @@ RSpec.describe Question, :type => :model do
 
   describe '#body_html' do
 
-    it 'converts markdown in body and return html' do
-      # '### h3 title'
-      # "<h3>h3 title</h3>\n"
+    context 'when body contains valid markdown' do
 
-      question = Question.new
-      question.body = '### h3 title'
-      expect(question.body_html).to eq("<h3>h3 title</h3>\n") 
+      it 'converts markdown in body and return html' do
+        # '### h3 title'
+        # "<h3>h3 title</h3>\n"
+
+        question = Question.new
+        question.body = '### h3 title'
+        expect(question.body_html).to eq("<h3>h3 title</h3>\n") 
+      end
+
+    end
+
+    context 'when body is nil' do
+
+      it 'returns empty string' do
+
+        question = Question.new
+        expect(question.body_html).to eq ""
+      end
     end
 
   end
