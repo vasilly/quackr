@@ -85,7 +85,7 @@ GEM
     rake (10.4.0)
     rdoc (4.1.2)
       json (~> 1.4)
-    redcarpet (3.2.1)
+    redcarpet (3.5.1)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
